@@ -4,6 +4,8 @@ const clouds = document.querySelector('.clouds')
 const overlayStart = document.getElementById('overlayStart')
 const overlayGameOver = document.getElementById('overlayGameOver')
 const score = document.querySelector('.score')
+const lastScore = document.querySelector('.last-score')
+const bestScore = document.querySelector('.best-score')
 const container = document.querySelector('.container')
 
 const backgroundMusic = document.getElementById('backgroundMusic')
@@ -11,9 +13,9 @@ const toggleMusicButton = document.getElementById('toggleMusic')
 
 let scorePoints = 0
 let scoreUpdate
-let lastScore
+let lastScorePoints
+let bestScorePoints = 0
 let loopGameOver
-let elementIsCreate = false
 
 const start = () => {
     setTimeout(() => {
@@ -86,16 +88,6 @@ toggleMusicButton.addEventListener('click', () => {
     }
 });
 
-
-
-const lastScoreCreateElement = () => {
-    const lastScoreDiv = document.createElement('div')
-    lastScoreDiv.setAttribute('id', 'lastScore')
-    lastScoreDiv.textContent = `Last  Score: ${lastScore}`
-    container.appendChild(lastScoreDiv)
-    elementIsCreate = true
-}
-
 const resetGame = () => {
     clearInterval(loopGameOver);
     
@@ -110,15 +102,18 @@ const resetGame = () => {
     pipe.style.animation = ''
     clouds.style.animation = ''
     
-    lastScore = scorePoints
+    lastScorePoints = scorePoints
     scorePoints = 0
     score.innerText = `Score: ${scorePoints}`
-    if (!elementIsCreate){
-        lastScoreCreateElement()
-    }
-    // console.log(lastScore)
-}
+    lastScore.innerText = `Last Score: ${lastScorePoints}`
+    lastScore.style.display = 'block'
 
+    if (lastScorePoints > bestScorePoints) {
+        bestScorePoints = lastScorePoints
+    }
+    bestScore.innerText = `Best Score: ${bestScorePoints}`
+    bestScore.style.display = 'block'
+}
 
 
 document.addEventListener('keydown', jump)
