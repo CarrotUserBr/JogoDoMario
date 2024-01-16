@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo do Mario</title>
+    
+    <!-- Styles -->
+        <link rel="stylesheet" href="./assets/css/style.css">
+       <link rel="stylesheet" href="./assets/css/reset.css">
+
+    <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Rubik+Maps&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+    <audio id="backgroundMusic" src="./assets/sounds/CarouselPort.mp3" loop>
+        Your browser does not support the audio element.
+    </audio>
+    <div id="overlayStart" class="overlay">
+
+        <div id="startScreen" class="start-screen">
+            <button id="startButton" onclick="start()">Start Game</button>
+        </div>
+    
+    </div>
+        
+    <main>
+
+        <div class="container">
+            
+            <div class="score" id="score">
+                Score: 0
+            </div>
+
+            <div class="music">
+                <img src="./assets/sprites/soundOn.png" id="toggleMusic">
+            </div>
+
+        </div>
+        
+        <img src="./assets/sprites/clouds.png" class="clouds">
+
+        <img src="./assets/sprites/pipe.png" class="pipe">
+
+        <img src="./assets/sprites/mario.gif" class="mario">
+
+        <div id="overlayGameOver" class="overlay">
+
+            <div id="gameOverScreen" class="game-over-screen">
+                <h1>You Lose</h1>
+                <button id="resetButton" onclick="resetGame()">Reset Game</button>
+            </div>
+        
+        </div>
+    </main>
+
+
+    <!-- Script -->
+        <script src="./assets/scripts/engine.js"></script>
+</body>
+</html>
