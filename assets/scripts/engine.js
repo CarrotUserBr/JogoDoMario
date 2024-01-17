@@ -91,7 +91,7 @@ toggleMusicButton.addEventListener('click', () => {
 const resetGame = () => {
     clearInterval(loopGameOver);
     
-    mario.src = '/assets/sprites/mario.gif'
+    mario.src = './assets/sprites/mario.gif'
     mario.style.width = '150px'
     mario.style.marginLeft = '0px'
     mario.style.bottom = '0px'
