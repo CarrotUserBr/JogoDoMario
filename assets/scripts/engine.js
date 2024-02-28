@@ -7,6 +7,8 @@ const score = document.querySelector('.score')
 const lastScore = document.querySelector('.last-score')
 const bestScore = document.querySelector('.best-score')
 const container = document.querySelector('.container')
+const buttonToJump = document.getElementById('buttonToJump')
+let deviceWidth = window.innerWidth
 
 const backgroundMusic = document.getElementById('backgroundMusic')
 const toggleMusicButton = document.getElementById('toggleMusic')
@@ -17,12 +19,21 @@ let lastScorePoints
 let bestScorePoints = 0
 let loopGameOver
 
+const activeButtonToJump = () => {
+    if (deviceWidth < 1024) {
+        buttonToJump.style.display= 'block'
+    }
+} 
+
 const start = () => {
     setTimeout(() => {
         pipe.style.animation = 'pipe-animation 1.5s infinite linear';
     }, 10);
     clouds.style.animation = 'clouds-animation 10s infinite linear'
     overlayStart.style.display = 'none'
+
+    activeButtonToJump()
+
     backgroundMusic.play()
     scoreUpdate = setInterval(() => {
         scorePoints++,
@@ -36,6 +47,7 @@ const start = () => {
     
         if (pipePositionL <= 120 && pipePositionL >0 && marioPosition < 100) {
     
+            buttonToJump.style.display = 'none'
             pipe.style.animation = ''
             pipe.style.right = `${pipePositionR}px`
             mario.style.animation = ''
@@ -72,10 +84,6 @@ const jump = () => {
 }
 
 
-
-
-
-
 toggleMusicButton.addEventListener('click', () => {
     if (backgroundMusic.paused) {
         backgroundMusic.play();
@@ -91,6 +99,8 @@ toggleMusicButton.addEventListener('click', () => {
 const resetGame = () => {
     clearInterval(loopGameOver);
     
+    activeButtonToJump()
+
     mario.src = './assets/sprites/mario.gif'
     mario.style.width = '150px'
     mario.style.marginLeft = '0px'
@@ -114,7 +124,6 @@ const resetGame = () => {
     bestScore.innerText = `Best Score: ${bestScorePoints}`
     bestScore.style.display = 'block'
 }
-
 
 document.addEventListener('keydown', jump)
 
