@@ -8,7 +8,6 @@ const lastScore = document.querySelector('.last-score')
 const bestScore = document.querySelector('.best-score')
 const container = document.querySelector('.container')
 const buttonToJump = document.getElementById('buttonToJump')
-let deviceWidth = window.innerWidth
 
 const backgroundMusic = document.getElementById('backgroundMusic')
 const toggleMusicButton = document.getElementById('toggleMusic')
@@ -20,9 +19,8 @@ let bestScorePoints = 0
 let loopGameOver
 
 const activeButtonToJump = () => {
-    if (deviceWidth < 1024) {
-        buttonToJump.style.display= 'block'
-    }
+    const deviceWidth = window.innerWidth
+    buttonToJump.style.display = deviceWidth < 1024 ? 'block' : 'none';
 } 
 
 const start = () => {
