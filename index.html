@@ -20,7 +20,11 @@
     </audio>
     <div id="overlayStart" class="overlay">
 
-        <div id="startScreen" class="start-screen">
+        <div id="rotateScreen" class="rotate-screen centralized">
+                Rotate your screen to play
+        </div>
+
+        <div id="startScreen" class="start-screen centralized">
             <button id="startButton" onclick="start()">Start Game</button>
         </div>
     
@@ -56,7 +60,7 @@
 
         <div id="overlayGameOver" class="overlay">
 
-            <div id="gameOverScreen" class="game-over-screen">
+            <div id="gameOverScreen" class="game-over-screen centralized">
                 <h1>You Lose</h1>
                 <button id="resetButton" onclick="resetGame()">Reset Game</button>
             </div>

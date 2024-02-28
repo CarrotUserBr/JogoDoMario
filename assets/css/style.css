@@ -20,7 +20,7 @@ body{
     display: block;
 }
 
-#overlayStart .start-screen {
+.centralized {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -111,15 +111,6 @@ main{
     opacity: 0.8; /* adicione um efeito de opacidade ao passar o mouse, se desejar */
 }
 
-
-#overlayGameOver .game-over-screen {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
-
 .game-over-screen button {
     padding: 10px 20px;
     font-size: 18px;
@@ -128,6 +119,15 @@ main{
     cursor: pointer;
     border: none;
     border-radius: 5px;
+}
+
+.rotate-screen {
+    display: none;
+    padding: 16px;
+    border: 2px solid #010101;
+    border-radius: 16px;
+    background: #f12;
+    color: #eee;
 }
 
 @keyframes pipe-animation {
@@ -168,4 +168,17 @@ main{
     to {
         right: 100%;
     }
+}
+
+@media (max-width: 500px){ 
+    .start-screen {
+        display: none;
+    }
+    .rotate-screen {
+        display: block;
+    }
+}
+
+@media (max-width: 1024px) {
+
 }
